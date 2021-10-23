@@ -16,6 +16,7 @@ public:
 
     //下面是一堆消息函数
     std::vector<OnMouseClicked*> OnMouseClickedFuncions;
+    std::vector<OnPaint*> OnPaintFunctions;
 private:
     std::vector<VControl*> Children;
     virtual void OnPaint();
