@@ -7,11 +7,12 @@ namespace Control {
       public:
         ControlBase();
         ~ControlBase();
-        static void AddChild(ControlBase* in);
-        static void DelChild(ControlBase* in);
+        void AddChild(ControlBase* in);
+        void DelChild(ControlBase* in);
 
       private:
         vector<ControlBase*> children;
+        void pushMsg(...);
     };
 }  // namespace Control
 }  // namespace Photon
