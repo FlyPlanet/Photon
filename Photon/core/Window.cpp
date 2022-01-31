@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <GLFW/glfw3.h>
 #include <mutex>
 Photon::Window::Window::Window()
 {
@@ -12,25 +11,25 @@ Photon::Window::Window::Window()
 #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+            std::cout << "Failed to initialize GLAD" << std::endl;
+        }
     });
 }
-void Photon::Window::Window::Show()
-{
-    InitGlWindow();
-}
-void Photon::Window::Window::InitGlWindow(int width,int height,char* title)
+
+void Photon::Window::Window::InitGlWindow(int width, int height, char* title)
 {
     window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (window == nullptr) {
-        //TODO:这里要加入窗口创建错误的处理代码
+        // TODO:这里要加入窗口创建错误的处理代码
     }
+}
+void Photon::Window::Window::Show()
+{
+    InitGlWindow(680,480,"fuck");
 }
 void Photon::Window::Window::MsgLoop()
 {
-    while (glfwWindowShouldClose(window)) {
-        
-    }
+    while (glfwWindowShouldClose(window)) {}
     // TODO:这里通知各个组件即将关闭窗口了
-    
-
 }

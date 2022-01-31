@@ -2,7 +2,6 @@
 #include "../pch.h"
 #include "../Photon.h"
 #include "ControlBase.h"
-#include <GLFW/glfw3.h>
 #include <mutex>
 namespace Photon {
 namespace Window {
