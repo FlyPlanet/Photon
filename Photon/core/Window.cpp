@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <mutex>
 Photon::Window::Window::Window()
 {
     std::call_once(this->glInited, []() {
@@ -14,9 +13,24 @@ Photon::Window::Window::Window()
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
             std::cout << "Failed to initialize GLAD" << std::endl;
         }
+
     });
 }
-
+int Photon::Window::Window::fps()
+{
+    static int fps = 0;
+    static int lastTime = this->clock.time_since_epoch().count(); // ms
+    static int frameCount = 0;
+    ++frameCount;
+    int curTime = this->clock.time_since_epoch().count();
+     if (curTime - lastTime > 1000) // 取固定时间间隔为1秒
+    {
+        fps = frameCount;
+        frameCount = 0;
+        lastTime = curTime;
+    }
+    return fps;
+}
 void Photon::Window::Window::InitGlWindow(int width, int height, char* title)
 {
     window = glfwCreateWindow(width, height, title, NULL, NULL);
@@ -26,10 +40,12 @@ void Photon::Window::Window::InitGlWindow(int width, int height, char* title)
 }
 void Photon::Window::Window::Show()
 {
-    InitGlWindow(680,480,"fuck");
+    InitGlWindow(680, 480, "fuck");
 }
 void Photon::Window::Window::MsgLoop()
 {
-    while (glfwWindowShouldClose(window)) {}
+    while (glfwWindowShouldClose(window)) {
+        std::cout<<"当前fps为"<<fps()<<std::endl;
+    }
     // TODO:这里通知各个组件即将关闭窗口了
 }

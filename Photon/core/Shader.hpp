@@ -7,7 +7,7 @@ namespace Shader {
       public:
         void load(std::string fpath, std::string vpath)
         {
-            vertexShader=
+            ;
         }
 
       private:
