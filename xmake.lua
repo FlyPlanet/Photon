@@ -18,6 +18,15 @@ target("demo")
     set_languages("c99", "c++20")
     add_files("demo/*.cpp")
     add_deps("Photon")
+    before_build(function (target)
+        import("core.tool.compiler")
+        for sourcekind, sourcebatch in pairs(target:sourcebatches()) do
+            for index, sourcefile in ipairs(sourcebatch.sourcefiles) do
+                local command = compiler.compcmd(sourcefile, sourcebatch.objectfiles[index], {target = target, sourcekind = sourcekind})
+                print(command)
+            end
+        end
+    end)
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

@@ -34,6 +34,7 @@ int Photon::Window::Window::fps()
 void Photon::Window::Window::InitGlWindow(int width, int height, char* title)
 {
     window = glfwCreateWindow(width, height, title, NULL, NULL);
+    
     if (window == nullptr) {
         // TODO:这里要加入窗口创建错误的处理代码
     }
@@ -45,6 +46,18 @@ void Photon::Window::Window::Show()
 void Photon::Window::Window::MsgLoop()
 {
     while (glfwWindowShouldClose(window)) {
+        //这里是获取事件呢
+        
+        //这里加入事件通知
+        //窗口要做的啊，直接通知组件就好了
+        
+        while(!this->eventQuene.empty()){
+            //要把队列挖空，对吧
+            for(auto &i:this->subControlEvents[eventQuene.back()]){
+                //TODO:这里没写好
+                eventQuene.pop_back();
+            }
+        }
         std::cout<<"当前fps为"<<fps()<<std::endl;
     }
     // TODO:这里通知各个组件即将关闭窗口了
