@@ -1,15 +1,9 @@
 
 #include <iostream>
-#include <any>
+#include "../Photon/Photon.h"
 using namespace std;
-void f(any p)
-{
-    
-}
 int main()
 {
-    int* p;
-    f(p);
-    std::cout<<"fuck";
+    
 
 }

@@ -13,7 +13,7 @@ class ControlBase {
     void                      AddChild(ControlBase* in);
     void                      DelChild(ControlBase* in);
     void                      registerEvent(Event::Event e);
-    Window::Window*           rWindow;
+    Photon::Window::Window*           rWindow;
     std::vector<ControlBase*> children;
     void registerEvent(Event::MsgOrigin mo,Event::MsgType mt,std::function<void(const Photon::Event::Event*)> callback);
     void receiveEvent(Event::MsgOrigin mo);  //用于接受事件

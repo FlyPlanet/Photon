@@ -2,7 +2,7 @@
 #include "../Photon.h"
 #include "../pch.h"
 namespace Photon::Window {
-class Window : public Control::ControlBase {
+class Window : public Photon::Control::ControlBase {
   public:
     Window();
     ~Window();
