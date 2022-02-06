@@ -15,6 +15,8 @@ foreach(_v ${HEADER_LIST})
     message(${_v})
 endforeach(_v ${HEADER_LIST})
 
+set(CMAKE_CXX_STANDARD 20)
+#引用vcpkg
 include(/home/skywards/Opensource/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
 find_package(glfw3 CONFIG REQUIRED)

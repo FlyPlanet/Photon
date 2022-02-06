@@ -4,13 +4,14 @@
 namespace Photon::Event {
 class Event {
   public:
-    void                  getEventValue(std::any* p);  //获取event的值
-    void                  getEventValue(std::any& p);  //获取event的值
-    std::function<void(const Photon::Event::Event*)> callback;
+    void getEventValue( std::any *p ); //获取event的值
+    void getEventValue( std::any &p ); //获取event的值
+    std::function<void( const Photon::Event::Event * )> callback;
+    
 
-    std::any* data;
+    std::any *data;
 };
-}  // namespace Photon::Event
+} // namespace Photon::Event
 
 /*
 消息组织策略

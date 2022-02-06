@@ -1,6 +1,6 @@
 #pragma once
-#include "Event.h"
 #include "../pch.h"
+#include "Event.h"
 namespace Photon::Event {
 enum class MsgType {
     Changed,
@@ -12,6 +12,4 @@ enum class MsgOrigin { MouseX, MouseY, KeyDown, KeyUp };
 //下面是类型
 typedef unsigned short MouseData;
 
-
-
-}  // namespace Photon::Event
+} // namespace Photon::Event
