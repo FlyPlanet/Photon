@@ -25,7 +25,7 @@ class ControlBase {
         dataTemp; //数据位置第二节点,本体在window
                   //
     std::deque<Event::MsgOrigin> eventQuene; //需要传达的消息队列
-    
+
     std::map<Photon::Event::MsgOrigin, std::list<Photon::Event::Event>> events;
 
   protected:

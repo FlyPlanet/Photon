@@ -4,12 +4,17 @@
 namespace Photon::Event {
 class Event {
   public:
-    void getEventValue( std::any *p ); //获取event的值
-    void getEventValue( std::any &p ); //获取event的值
-    std::function<void( const Photon::Event::Event * )> callback;
-    
-
-    std::any *data;
+    Event();
+    void addRequire( Photon::Event::MsgType mt, Photon::Event::MsgOrigin mo );
+    void regisiter( EventCenter *ec );
+    EventUnit fetch(); //进点新货
+    Photon::Data::Data
+        getEventValue( Photon::Event::MsgOrigin mo ); //获取event的值
+  private:
+    EventCenter *boss;              //货源
+    int          eventPosition = 0; //新货的地址
+    std::map<Photon::Event::MsgOrigin, Photon::Data::Data *>   moData;
+    std::map<Photon::Event::MsgOrigin, Photon::Event::MsgType> moMt;
 };
 } // namespace Photon::Event
 
