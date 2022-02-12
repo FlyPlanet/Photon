@@ -3,7 +3,7 @@ project(Photon VERSION 0.1)
 
 
 FILE(GLOB SRC_LIST "./core/*.cpp" "./core/*.c")
-FILE(GLOB HEADER_LIST "./core/*.hpp" "./core/*.h")
+FILE(GLOB HEADER_LIST "./core/*.hpp" "./core/*.h" "./*.h")
 
 message(源文件:)
 foreach(_v ${SRC_LIST})
@@ -22,10 +22,13 @@ include(/home/skywards/Opensource/vcpkg/scripts/buildsystems/vcpkg.cmake)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(freetype CONFIG REQUIRED)
+find_package(glog CONFIG REQUIRED)
 
 
-add_library(${PROJECT_NAME} STATIC ${SRC_LIST} ${HEADER_LIST} Photon.h)
+add_library(${PROJECT_NAME} STATIC ${HEADER_LIST} ${SRC_LIST} Photon.h)
 target_precompile_headers(${PROJECT_NAME} PUBLIC pch.h)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+target_link_libraries(${PROJECT_NAME} PRIVATE glog::glog)
+

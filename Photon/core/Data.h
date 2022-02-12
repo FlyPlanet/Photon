@@ -4,7 +4,7 @@
 
 #ifndef PHOTONDEMO_DATA_H
 #define PHOTONDEMO_DATA_H
-#include "../Photon.h"
+
 #include "../pch.h"
 namespace Photon::Data {
 enum class PType { String, Num, Bool };
@@ -14,7 +14,7 @@ class Data {
   Data(int v);
   Data(bool v);
 
-  void SetData(std::any &v);
+  void SetData(std::any v);
   bool isSame(std::any *c);
   template <class T>
   inline T c_type() {

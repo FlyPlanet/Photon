@@ -3,7 +3,7 @@
 //
 
 #include "Data.h"
-void Photon::Data::Data::SetData(std::any &v) {
+void Photon::Data::Data::SetData(std::any v) {
   if (v.type() != this->data.type()) throw std::exception();
   this->data = v;
 }

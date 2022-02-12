@@ -1,6 +1,6 @@
 #pragma once
 #include "../pch.h"
-#include "Event.h"
+
 namespace Photon::Event {
 enum class MsgType { Changed, Remain };
 

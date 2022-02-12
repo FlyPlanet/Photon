@@ -1,5 +1,4 @@
 #pragma once
-#include "../Photon.h"
 #include "../pch.h"
 namespace Photon::Window {
 class Window {

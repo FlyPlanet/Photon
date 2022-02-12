@@ -20,3 +20,8 @@
 
 // freetype
 #include <freetype2/ft2build.h>
+
+// glog if debug
+#ifndef DEBUG
+#include <glog/logging.h>
+#endif
