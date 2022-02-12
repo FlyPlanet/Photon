@@ -11,7 +11,8 @@ class Event {
     Photon::Data::Data
         getEventValue( Photon::Event::MsgOrigin mo ); //获取event的值
   private:
-    EventCenter *boss;              //货源
+   bool registered = false;
+   EventCenter *boss;      //货源
     int          eventPosition = 0; //新货的地址
     std::map<Photon::Event::MsgOrigin, Photon::Data::Data *>   moData;
     std::map<Photon::Event::MsgOrigin, Photon::Event::MsgType> moMt;

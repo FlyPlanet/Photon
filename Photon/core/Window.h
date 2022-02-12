@@ -18,10 +18,6 @@ class Window {
 
     void InitGlWindow( int width, int height, char *title );
     void MsgLoop();
-    std::map<Photon::Event::MsgOrigin, std::any> eventData; //储存所有数据的容器
 
-    std::map<Photon::Event::MsgOrigin,
-             std::map<Photon::Event::MsgType, std::set<Control::ControlBase *>>>
-        subControlEvents; //用于储存组件所需的事件
 };
 } // namespace Photon::Window

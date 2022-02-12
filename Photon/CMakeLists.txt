@@ -24,7 +24,7 @@ find_package(glad CONFIG REQUIRED)
 find_package(freetype CONFIG REQUIRED)
 
 
-add_library(${PROJECT_NAME} STATIC ${SRC_LIST} ${HEADER_LIST})
+add_library(${PROJECT_NAME} STATIC ${SRC_LIST} ${HEADER_LIST} Photon.h)
 target_precompile_headers(${PROJECT_NAME} PUBLIC pch.h)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
