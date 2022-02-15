@@ -10,10 +10,14 @@ namespace Photon::Data {
 enum class PType { String, Num, Bool };
 class Data {
  public:
+  explicit Data(int v) : Data(v, PType::Num) {}
+  explicit Data(std::string v) : Data(v, PType::String) {}
+  explicit Data(PType t) : Data(NULL, t) {}
+  Data(const Data &d);
   Data();
-  Data(int v);
-  Data(bool v);
-
+  void SetData(std::string v);
+  void SetData(int v);
+  void SetData(bool v);
   void SetData(std::any v);
   bool isSame(std::any *c);
   template <class T>
@@ -29,6 +33,8 @@ class Data {
   }
 
  private:
+  Data(std::any v, PType t);
+
   PType type;
   std::any data;
 };

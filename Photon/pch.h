@@ -12,7 +12,7 @@
 #include <set>
 #include <string>
 #include <vector>
-
+#include <unordered_map>
 // opengl library
 
 #include <glad/glad.h>
@@ -21,7 +21,4 @@
 // freetype
 #include <freetype2/ft2build.h>
 
-// glog if debug
-#ifndef DEBUG
-#include <glog/logging.h>
-#endif
+#include <iostream>

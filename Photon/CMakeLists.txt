@@ -16,13 +16,13 @@ foreach(_v ${HEADER_LIST})
 endforeach(_v ${HEADER_LIST})
 
 set(CMAKE_CXX_STANDARD 20)
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 #引用vcpkg
 include(/home/skywards/Opensource/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(freetype CONFIG REQUIRED)
-find_package(glog CONFIG REQUIRED)
 
 
 add_library(${PROJECT_NAME} STATIC ${HEADER_LIST} ${SRC_LIST} Photon.h)
@@ -30,5 +30,5 @@ target_precompile_headers(${PROJECT_NAME} PUBLIC pch.h)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
-target_link_libraries(${PROJECT_NAME} PRIVATE glog::glog)
+
 

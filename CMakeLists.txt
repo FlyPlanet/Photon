@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 find_package(glad)
 add_executable(${PROJECT_NAME} demo/HelloWindow.cpp)
 
-
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 target_link_libraries(${PROJECT_NAME}
         PUBLIC
         Photon
