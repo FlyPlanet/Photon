@@ -4,7 +4,7 @@ using namespace std;
 using namespace Photon;
 int main() {
   Event::EventCenter ec;
-  Event::Event e;
+  Event::EventClient e;
   ec.addOrigin(Event::MsgOrigin::MouseX);
   ec.addProvider(Event::MsgOrigin::MouseX, [&](function<void(std::any)> f) {
     cout << "fucked" << endl;

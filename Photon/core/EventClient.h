@@ -4,9 +4,9 @@
 #include "EventCenter.h"
 #include "Msg.h"
 namespace Photon::Event {
-class Event {
+class EventClient {
  public:
-  Event();
+  EventClient();
   void addRequire(Photon::Event::MsgType mt, Photon::Event::MsgOrigin mo);
   void regisiter(EventCenter *ec);
   EventUnit fetch(Photon::Event::MsgOrigin mo,
@@ -20,5 +20,4 @@ class Event {
   std::map<Photon::Event::MsgOrigin, Photon::Data::Data *> moData;
   std::map<Photon::Event::MsgOrigin, Photon::Event::MsgType> moMt;
 };
-} // namespace Photon::Event
-
+}  // namespace Photon::Event

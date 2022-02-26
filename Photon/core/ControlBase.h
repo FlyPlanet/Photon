@@ -3,7 +3,7 @@
 #include "../pch.h"
 #include "Window.h"
 #include "Msg.h"
-#include "Event.h"
+#include "EventClient.h"
 namespace Photon::Control {
 
 class ControlBase {
@@ -20,7 +20,8 @@ class ControlBase {
                    //
     std::deque<Event::MsgOrigin> eventQuene;  //需要传达的消息队列
 
-    std::map<Photon::Event::MsgOrigin, std::list<Photon::Event::Event>> events;
+    std::map<Photon::Event::MsgOrigin, std::list<Photon::Event::EventClient>>
+        events;
 
    protected:
 };

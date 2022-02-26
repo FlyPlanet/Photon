@@ -1,19 +1,22 @@
 cmake_minimum_required(VERSION 3.0)
 project(Photon VERSION 0.1)
-
-
-FILE(GLOB SRC_LIST "./core/*.cpp" "./core/*.c")
-FILE(GLOB HEADER_LIST "./core/*.hpp" "./core/*.h" "./*.h")
-
+add_subdirectory("./lib/idgen")
+set(FILE_DIR "./core" "./render")
+foreach (_v ${FILE_DIR})
+    FILE(GLOB SRC_LIST_F "./core/*.cpp" "./core/*.c")
+    FILE(GLOB HEADER_LIST_F "./core/*.hpp" "./core/*.h" "./*.h")
+    set(SRC_LIST ${SRC_LIST} ${SRC_LIST_F})
+    set(HEADER_LIST ${HEADER_LIST} ${HEADER_LIST_F})
+endforeach ()
 message(源文件:)
-foreach(_v ${SRC_LIST})
+foreach (_v ${SRC_LIST})
     message(${_v})
-endforeach(_v ${SRC_LIST})
+endforeach (_v ${SRC_LIST})
 
 message(头文件:)
-foreach(_v ${HEADER_LIST})
+foreach (_v ${HEADER_LIST})
     message(${_v})
-endforeach(_v ${HEADER_LIST})
+endforeach (_v ${HEADER_LIST})
 
 set(CMAKE_CXX_STANDARD 20)
 add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
