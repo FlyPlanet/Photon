@@ -2,6 +2,9 @@
 #include "../Photon/Photon.h"
 using namespace std;
 using namespace Photon;
+void add(){
+  cout<<"Fuck"<<endl;
+}
 int main() {
   Event::EventCenter ec;
   Event::EventClient e;
@@ -14,5 +17,5 @@ int main() {
   e.regisiter(&ec);
   ec.runProviders();
   auto a = e.fetch(Event::MsgOrigin::MouseX, Event::MsgType::Changed);
-  a.used = true;
+
 }

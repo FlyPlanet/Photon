@@ -1,7 +1,8 @@
 #pragma once
 #include "../pch.h"
+#include "../opengl/glWindow.h"
 namespace Photon::Window {
-class Window {
+class Window:glWindow {
   public:
     Window();
     ~Window();
@@ -19,4 +20,4 @@ class Window {
     void MsgLoop();
 
 };
-} // namespace Photon::Window
+}  // namespace Photon::Window
