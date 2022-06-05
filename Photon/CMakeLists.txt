@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(Photon VERSION 0.1)
 
-set(FILE_DIR "./core" "./render" "./opengl")
+set(FILE_DIR "./core" "./extension" "./implementation/opengl")
 foreach (_v ${FILE_DIR})
     FILE(GLOB SRC_LIST_F "${_v}/*.cpp" "${_v}/*.c")
     FILE(GLOB HEADER_LIST_F "${_v}/*.hpp" "${_v}/*.h" )

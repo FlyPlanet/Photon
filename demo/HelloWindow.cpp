@@ -15,7 +15,9 @@ int main() {
   });
   e.addRequire(Event::MsgType::Changed, Event::MsgOrigin::MouseX);
   e.regisiter(&ec);
+
   ec.runProviders();
   auto a = e.fetch(Event::MsgOrigin::MouseX, Event::MsgType::Changed);
+  //print
 
 }

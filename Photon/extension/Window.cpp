@@ -18,6 +18,7 @@ int Photon::Window::Window::fps()
 	}
 	return fps;
 }
+
 void Photon::Window::Window::InitGlWindow(int width, int height, char *title)
 {
 	window = glfwCreateWindow(width, height, title, NULL, NULL);
@@ -32,6 +33,7 @@ void Photon::Window::Window::MsgLoop()
 {
 	while (glfwWindowShouldClose(window))
 	{
+
 		//这里是获取事件呢
 		
 

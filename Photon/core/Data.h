@@ -40,3 +40,4 @@ class Data {
 };
 }  // namespace Photon::Data
 #endif  // PHOTONDEMO_DATA_H
+class copilot
