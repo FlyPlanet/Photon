@@ -27,15 +27,18 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(freetype CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
+find_package(lua CONFIG REQUIRED)
 
 
 add_library(${PROJECT_NAME} STATIC ${HEADER_LIST} ${SRC_LIST} Photon.h)
 target_precompile_headers(${PROJECT_NAME} PUBLIC pch.h)
-
+target_include_directories(${PROJECT_NAME} PRIVATE ${LUA_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
 target_link_libraries(${PROJECT_NAME} PRIVATE yaml-cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LUA_LIBRARIES})
+
 
 
 
