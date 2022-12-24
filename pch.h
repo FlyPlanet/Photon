@@ -4,3 +4,4 @@
 #include <string>
 #include <functional>
 #include <typeinfo>
+#include <map>

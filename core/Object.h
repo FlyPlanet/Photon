@@ -1,11 +1,15 @@
 #pragma once
 
 #include "../pch.h"
-
-
+#include "DOMTree.h"
+#include "Observer.h"
 class Object
 {
-  protected:
-    std::vector<Action> actions;
-    void receiveSignal(Signal_);
+  private:
+    DOMUnit* self;
+
+  public:
+    std::vector<ObserveFunction> observeFunctions;
+    Object(){}
+
 };

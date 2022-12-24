@@ -1,18 +1,30 @@
 #pragma once
-#include <vector>
+#include "../pch.h"
+class Object;
+class Observer;
+
 struct DOMUnit
 {
+    DOMUnit *parent = nullptr;
+    Object * object;
     std::vector<DOMUnit> children;
+    
+    DOMUnit(DOMUnit* d,Object* o):parent(d),object(o){}
     void free()
     {
     }
 };
+
 class DOMTree
 {
   private:
     DOMUnit root;
+    
+    bool shouldClose=false;
   public:
+    
     DOMTree();
+    DOMUnit *NewObject(Object *o,DOMUnit *parent=nullptr);
     ~DOMTree()
     {
         auto freeChild = [&](DOMUnit du) {
@@ -24,5 +36,7 @@ class DOMTree
         };
         freeChild(root);
     }
+    void Run();
+
 };
 extern DOMTree domTree;

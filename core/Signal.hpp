@@ -1,7 +1,7 @@
 //信号只是用来寻找Observer和需求函数，找到后就建立对应的函数回调
 #pragma once
 #include "../pch.h"
-#include "DOMTree.hpp"
+#include "DOMTree.h"
 #include <cstddef>
 #include <typeinfo>
 #define NewSignal(SIGNATURE, NAME) Signal<#SIGNATURE>##NAME(#NAME)
@@ -24,15 +24,24 @@ class Signal<R(Arg...)>
   private:
     std::string name;
     static long id_now;
+    static std::map<std::string,long> name_id;
     std::vector<std::function<R(Arg...)>> functions;
     bool rebuildPath = true;
-    Signal()
-    {
-        id = id_now;
-        id_now++;
-    }
+    Signal()=delete;
   public:
-    Signal(std::string name):Signal(),name(name){}
+    Signal(std::string name) : Signal(), name(name)
+    {
+        if (name_id.count(name) != 0)
+        {
+            id=name_id.at(name);
+        }
+        else
+        {
+            id = id_now;
+            id_now++;
+            name_id[name]=id;
+        }
+    }
     long id;
     operator Signal_()
     {
@@ -57,5 +66,5 @@ class Signal<R(Arg...)>
         }
     }
 };
-template <class T,class ...H>
-long Signal<T(H...)>::id_now=0;
+template <class T, class... H> long Signal<T(H...)>::id_now = 0;
+template <class T, class... H> std::map<std::string, long> Signal<T(H...)>::name_id;
